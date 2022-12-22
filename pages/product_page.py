@@ -26,10 +26,12 @@ class ProductPage(BasePage):
         info_alert = self.browser.find_element(*ProductPageLocators.PRICE_INFO_ALERT)
         assert price.text == info_alert.text, "Price is not present in info alert"
 
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not disappeared, but it should"
+
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
 
-    def should_disappear_success_message(self):
-        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
-            "Success message is not disappeared, but it should"
+    
