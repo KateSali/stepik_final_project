@@ -17,7 +17,6 @@ class LoginPage(BasePage):
         reg_submit = self.browser.find_element(*LoginPageLocators.REGISTER_SUBMIT)
         reg_submit.click()
         WebDriverWait(self.browser, 30).until(EC.visibility_of_element_located(LoginPageLocators.REGISTER_SUCCESS))
-        #time.sleep(20)
     
     def should_be_login_page(self):
         self.should_be_login_url()
